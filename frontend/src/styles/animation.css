@@ -1,0 +1,243 @@
+/* =====================================================
+   CAMPUSKEKE — RIDE JOURNEY ANIMATIONS
+===================================================== */
+
+/* ---------------------------------------------
+   Pickup
+--------------------------------------------- */
+
+@keyframes ridePickup {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  15%,
+  82% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+/* ---------------------------------------------
+   First connecting line
+--------------------------------------------- */
+
+@keyframes rideLineOne {
+  0%,
+  18% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  25%,
+  82% {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0);
+  }
+}
+
+/* ---------------------------------------------
+   Destination
+--------------------------------------------- */
+
+@keyframes rideDestination {
+  0%,
+  28% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  36%,
+  82% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+/* ---------------------------------------------
+   Second connecting line
+--------------------------------------------- */
+
+@keyframes rideLineTwo {
+  0%,
+  40% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0);
+  }
+
+  47%,
+  82% {
+    opacity: 1;
+    transform: translateX(-50%) scaleY(1);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scaleY(0);
+  }
+}
+
+/* ---------------------------------------------
+   Ready to ride
+--------------------------------------------- */
+
+@keyframes rideReady {
+  0%,
+  50% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  58%,
+  82% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+
+/* =====================================================
+   ANIMATION CLASSES
+===================================================== */
+
+.animate-ride-pickup {
+  animation: ridePickup 7s ease-in-out infinite;
+}
+
+.animate-ride-line-one {
+  animation: rideLineOne 7s ease-in-out infinite;
+}
+
+.animate-ride-destination {
+  animation: rideDestination 7s ease-in-out infinite;
+}
+
+.animate-ride-line-two {
+  animation: rideLineTwo 7s ease-in-out infinite;
+}
+
+.animate-ride-ready {
+  animation: rideReady 7s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   ACCESSIBILITY
+   Respect users who prefer reduced motion.
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ride-pickup,
+  .animate-ride-line-one,
+  .animate-ride-destination,
+  .animate-ride-line-two,
+  .animate-ride-ready {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* =====================================================
+   CAMPUSKEKE — PAGE TRANSITIONS
+===================================================== */
+
+@keyframes signupSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(45px);
+  }
+}
+
+.signup-book-close {
+  animation: signupSlideOut 350ms ease-in forwards;
+  pointer-events: none;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .signup-book-close {
+    animation-duration: 1ms;
+  }
+}
+
+
+/* =========================================
+   HOMEPAGE → LOGIN / SIGNUP TRANSITION
+   ========================================= */
+
+@keyframes homeSlideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-45px);
+  }
+}
+
+@keyframes authSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(45px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Homepage slides left when leaving */
+.home-page-exit {
+  animation: homeSlideOut 350ms ease-in forwards;
+  pointer-events: none;
+}
+
+/* Login and signup pages enter from the right */
+.auth-page-enter {
+  animation: authSlideIn 400ms ease-out both;
+}
+
+/* Accessibility: respect reduced-motion settings */
+@media (prefers-reduced-motion: reduce) {
+  .home-page-exit,
+  .auth-page-enter {
+    animation-duration: 1ms;
+  }
+}
